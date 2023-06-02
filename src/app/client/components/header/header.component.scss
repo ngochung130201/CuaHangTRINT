@@ -1,0 +1,72 @@
+.logo_img {
+  width: 10rem;
+  height: 1.875rem;
+  object-fit: cover;
+
+}
+@mixin Flex($justifyContent,$alignItems){
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+header {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color: #3f51b5;
+  color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+ 
+  
+}
+.header_item {
+  @include Flex(space-between,center )
+}
+.list-item {
+  display: flex;
+  gap: 0.8rem;
+}
+.header_item_2 {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+
+}
+.item-3 {
+  width: 8rem;
+  a {
+    display: flex;
+    flex-direction: column;
+     
+    align-items: center;
+    gap: 0.2rem;
+    span {
+      text-align: center;
+      font-size: 0.75rem;
+    }
+  }
+}
+.header_search {
+  width: 18.75rem;
+  height: 2.5rem;
+  padding-left: 1rem;
+  border-radius: 0.625rem;
+  border: 1px solid #eeee;
+}
+.header_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ul {
+    display: flex;
+    gap: 1rem;
+  }
+}
+.footer__pay {
+  display: flex;
+}

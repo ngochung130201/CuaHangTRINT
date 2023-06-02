@@ -1,0 +1,178 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "DoAnPC": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/do-an-pc",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/app/client/assets"
+
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "src/app/client/assets/css/preloader.css",
+              "src/app/client/assets/css/bootstrap.css",
+              "src/app/client/assets/css/meanmenu.css",
+              "src/app/client/assets/css/animate.css",
+              "src/app/client/assets/css/owl-carousel.css",
+              "src/app/client/assets/css/swiper-bundle.css",
+              "src/app/client/assets/css/backtotop.css",
+              "src/app/client/assets/css/magnific-popup.css",
+              "src/app/client/assets/css/nice-select.css",
+              "src/app/client/assets/flaticon/flaticon.css",
+              "src/app/client/assets/css/font-awesome-pro.css",
+              "src/app/client/assets/css/default.css",
+              "src/app/client/assets/css/style.css"
+             
+            ],
+            "scripts": [
+              "src/app/client/assets/js/vendor/jquery.js",
+              "src/app/client/assets/js/vendor/waypoints.js",
+              "src/app/client/assets/js/bootstrap-bundle.js",
+              "src/app/client/assets/js/meanmenu.js",
+              "src/app/client/assets/js/swiper-bundle.js",
+              "src/app/client/assets/js/tweenmax.js",
+              "src/app/client/assets/js/owl-carousel.js",
+              "src/app/client/assets/js/magnific-popup.js",
+              "src/app/client/assets/js/parallax.js",
+              "src/app/client/assets/js/backtotop.js",
+              "src/app/client/assets/js/nice-select.js",
+              "src/app/client/assets/js/countdown.min.js",
+              "src/app/client/assets/js/counterup.js",
+              "src/app/client/assets/js/wow.js",
+              "src/app/client/assets/js/isotope-pkgd.js",
+              "src/app/client/assets/js/imagesloaded-pkgd.js",
+              "src/app/client/assets/js/ajax-form.js",
+              "src/app/client/assets/js/main.js"
+            ]
+          },
+          "configurations": {
+
+            "production": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "budgets": [
+                { "type": "initial", "maximumWarning": "20mb", "maximumError": "25mb" },
+
+              { "type": "anyComponentStyle", "maximumWarning": "20mb", "maximumError": "25mb" }
+            ],
+
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+
+              "browserTarget": "DoAnPC:build:production"
+            },
+            "development": {
+              "browserTarget": "DoAnPC:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "DoAnPC:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/app/client/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "src/app/client/assets/css/preloader.css",
+              "src/app/client/assets/css/bootstrap.css",
+              "src/app/client/assets/css/meanmenu.css",
+              "src/app/client/assets/css/animate.css",
+              "src/app/client/assets/css/owl-carousel.css",
+              "src/app/client/assets/css/swiper-bundle.css",
+              "src/app/client/assets/css/backtotop.css",
+              "src/app/client/assets/css/magnific-popup.css",
+              "src/app/client/assets/css/nice-select.css",
+              "src/app/client/assets/flaticon/flaticon.css",
+              "src/app/client/assets/css/font-awesome-pro.css",
+              "src/app/client/assets/css/default.css",
+              "src/app/client/assets/css/style.css"
+            ],
+            "scripts": [
+              "src/app/client/assets/js/vendor/jquery.js",
+              "src/app/client/assets/js/vendor/waypoints.js",
+              "src/app/client/assets/js/bootstrap-bundle.js",
+              "src/app/client/assets/js/meanmenu.js",
+              "src/app/client/assets/js/swiper-bundle.js",
+              "src/app/client/assets/js/tweenmax.js",
+              "src/app/client/assets/js/owl-carousel.js",
+              "src/app/client/assets/js/magnific-popup.js",
+              "src/app/client/assets/js/parallax.js",
+              "src/app/client/assets/js/backtotop.js",
+              "src/app/client/assets/js/nice-select.js",
+              "src/app/client/assets/js/countdown.min.js",
+              "src/app/client/assets/js/counterup.js",
+              "src/app/client/assets/js/wow.js",
+              "src/app/client/assets/js/isotope-pkgd.js",
+              "src/app/client/assets/js/imagesloaded-pkgd.js",
+              "src/app/client/assets/js/ajax-form.js",
+              "src/app/client/assets/js/main.js"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "2b863cd4-4758-474e-b8b6-fc2285a664b1"
+  }
+}

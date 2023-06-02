@@ -1,0 +1,72 @@
+@import '../../../../app/app.component.scss';
+.login-title {
+  @apply text-xl  text-center font-medium;
+}
+.mt-10 {
+  margin-top: 5rem
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login_img {
+  width: 213px;
+  height: 213px;
+}
+.login_title {
+  color: #4a4a4a;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.login_forget {
+  display: block;
+  text-align: right;
+}
+.login_btn {
+  margin-top: 1.25rem;
+  width: 100%;
+  margin-bottom: 1.25rem;
+} 
+.login_or span {
+  line-height: 1.5rem;
+}
+.full-width {
+  display: block;
+  width: 100%;
+}
+.w-630  {
+  width: 40rem;
+}
+.login_or span {
+  display: block;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.btn_google {
+  margin-bottom: 1.25rem;
+}
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  a {
+    color: #3f51b5;
+  }
+}
+main {
+  margin-bottom: 3.4rem;
+}

@@ -1,0 +1,96 @@
+<main class=" padding-desktop mt-10">
+    <div class="flex-center">
+      <div class="">
+       <img class="login_img" src="https://account.cellphones.com.vn/_nuxt/img/Shipper_CPS3.0251fdd.png" alt="">
+         <div class="login_title">Đăng ký tài khoản TRI NT</div>
+      </div>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Tên</mat-label>
+            <input type="text" matInput [formControl]="firstNameFormControl"
+                   placeholder="Nhập tên">
+            <!-- <mat-hint></mat-hint> -->
+            <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Vui lòng nhập Tên hợp lệ
+            </mat-error> -->
+            <mat-error *ngIf="firstNameFormControl.hasError('required')">
+              Tên không được để <strong>trống</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Họ</mat-label>
+            <input type="text" matInput [formControl]="lastNameFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Nhập họ">
+            <mat-hint></mat-hint>
+            <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Vui lòng nhập Tên hợp lệ
+            </mat-error> -->
+            <mat-error *ngIf="lastNameFormControl.hasError('required')">
+              Họ không được để <strong>trống</strong>
+            </mat-error>
+          </mat-form-field>
+       <mat-form-field class="example-full-width">
+         <mat-label>Email</mat-label>
+         <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                placeholder="Ex. hung@gmail.com">
+         <mat-hint></mat-hint>
+         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+           Vui lòng nhập địa chỉ email hợp lệ
+         </mat-error>
+         <mat-error *ngIf="emailFormControl.hasError('required')">
+           Email không được để <strong>trống</strong>
+         </mat-error>
+       </mat-form-field>
+       <mat-form-field class="example-full-width">
+         <mat-label>Mật khẩu</mat-label>
+         <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+                >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+         <mat-hint>Mật khẩu phải nhiều hơn 8 ký tự, ít nhất 1 chữ thường 1 chữ in hoa, 1 chữ số, 1 ký tự đặc biệt</mat-hint>
+         <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+           Vui lòng nhập mật khẩu hợp lệ
+         </mat-error>
+         <mat-error *ngIf="passwordFormControl.hasError('required')">
+           Mật khẩu không được để <strong>trống</strong>
+         </mat-error>
+       </mat-form-field>
+       <mat-form-field class="example-full-width">
+        <mat-label>Xác nhận lại mật khẩu</mat-label>
+        <input type="password" matInput [formControl]="confirmPasswordFormControl" [errorStateMatcher]="matcher"
+               >
+               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="confirmPasswordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+          Vui lòng nhập mật khẩu hợp lệ
+        </mat-error>
+        <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
+          Mật khẩu không được để <strong>trống</strong>
+        </mat-error>
+      </mat-form-field>
+       
+       <button (click)="HandleRegister()" class="login_btn" mat-raised-button color="primary">Đăng ký</button>
+       <div class="login_or">
+         <span>Hoặc</span>
+         <div class="login_btn_or">
+           <button  class="full-width btn_google" mat-stroked-button>Đăng nhập bằng Google</button>
+         </div>
+         <div class="flex-center">
+           <div class="flex-row">
+             <div>Bạn đã có tài khoản?</div>
+             <a routerLink="/dang-nhap">Đăng nhập ngay</a>
+           </div>
+         </div>
+     </div>
+     </form>
+ 
+     </div>
+   
+     
+    
+ </main>
+ 
+ 

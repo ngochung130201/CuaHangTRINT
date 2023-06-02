@@ -1,0 +1,10 @@
+.productSort {
+  @apply border  border-solid border-[#e4e5f0] text-color-main px-4 py-2 text-center text-xs cursor-pointer;
+}
+.productTitle {
+  @apply font-medium text-sm text-color-main;
+}
+.mt-10 {
+  margin-top: 3.3rem
+}
+@import '../../../app.component.scss';

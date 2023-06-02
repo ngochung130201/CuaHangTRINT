@@ -1,0 +1,32 @@
+.title-footer {
+  @apply text-color-main text-sm font-bold;
+}
+.link-footer {
+  @apply text-left text-xs text-color-main leading-4;
+}
+.link-footer:hover {
+  @apply text-[#024dbc] transition-all ease-in-out delay-150;
+}
+.footer__pay {
+  display: flex;
+  gap: 1rem;
+  
+}
+.fotter_custom {
+  border-top: 2px solid #3f51b5;
+  padding-right: 3.15rem;
+  padding-left: 3.15rem;
+
+}
+.footer-text,.footer__link-2 ul li a {
+  color:#4a4a4a !important;
+}
+footer {
+ padding-top: 1rem;
+}
+.footer__widget-title {
+  padding-top: 1rem;
+  h4 {
+    color: #4a4a4a !important;
+  }
+}

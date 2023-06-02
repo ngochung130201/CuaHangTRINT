@@ -1,0 +1,96 @@
+.padding-desktop {
+  padding-right: 10rem;
+  padding-left: 10rem;
+
+}
+
+.swiper-container {
+  width: 100%;
+  height: 300px;
+  margin: 50px auto;
+}
+
+.swiper-slide {
+  background: #f1f1f1;
+  color: #000;
+  text-align: center;
+  line-height: 300px;
+}
+/* slides.component.scss */
+
+.slide {
+
+  position: relative;
+
+  text-align: center;
+
+}
+.silder img {
+ display: none;
+
+}
+.silder img.image-active {
+  display: block;
+}
+.carousel-dot-container {
+  position: absolute;
+  right: 0;left: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 1rem;
+
+}
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin:0 5px;
+  display: inline-block;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+  background-color: #cccc;
+}
+.active.dot:hover {
+  opacity: 1;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {
+      opacity: 0.4;
+  }
+  to {
+      opacity: 1;
+  }
+}
+.mat-progress-bar {
+  height: 10px !important;
+  border-radius: 6.66667px;
+}
+.w-full-100 {
+  width: 100%;
+}
+@media screen and (max-width :768px){
+  .padding-desktop {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.btn-custom-24 {
+  padding: 2px 40px !important;
+}
+.promotionPrice span {
+  text-decoration: line-through;
+}
+.post-img {
+  width: 20rem;
+  height: 12.5rem;
+  object-fit: cover;
+}
+.moveing-text-area {
+  background-color: #3f51b5;
+}

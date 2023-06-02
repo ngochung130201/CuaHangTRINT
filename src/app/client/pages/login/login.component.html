@@ -1,0 +1,58 @@
+<main class=" padding-desktop mt-10">
+   <div class="flex-center">
+     <div class="">
+      <img class="login_img" src="https://account.cellphones.com.vn/_nuxt/img/Shipper_CPS3.0251fdd.png" alt="">
+        <div class="login_title">Đăng nhập tài khoản TRI NT</div>
+     </div>
+     <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+               placeholder="Ex. hung@gmail.com">
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Vui lòng nhập địa chỉ email hợp lệ
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email không được để <strong>trống</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Mật khẩu</mat-label>
+        <input type="password" matInput  [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+               >
+               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+        <mat-hint></mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+          Vui lòng nhập mật khẩu hợp lệ
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Mật khẩu không được để <strong>trống</strong>
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <a href="" class="login_forget">Quên mật khẩu?</a>
+      </div>
+      <button (click)="HandleLogin()" class="login_btn" mat-raised-button color="primary">Đăng nhập</button>
+      <div class="login_or">
+        <span>Hoặc</span>
+        <div class="login_btn_or">
+          <button  class="full-width btn_google" mat-stroked-button>Đăng nhập bằng Google</button>
+        </div>
+        <div class="flex-center">
+          <div class="flex-row">
+            <div>Bạn chưa có tài khoản?</div>
+            <a routerLink="/dang-ky">Đăng ký ngay</a>
+          </div>
+        </div>
+    </div>
+    </form>
+
+    </div>
+  
+    
+   
+</main>
+

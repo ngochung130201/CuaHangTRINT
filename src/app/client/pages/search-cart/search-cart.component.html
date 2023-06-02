@@ -1,0 +1,73 @@
+
+<main class=" padding-desktop mt-10">
+    <section class="breadcrumb__area box-plr-75 ">
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-12">
+              <div class="breadcrumb__wrapper">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
+ </main>
+
+  <div class="flex-search_cart">
+    <div class="">
+       <span class="title_cart">
+        Tra cứu đơn hàng của bạn
+       </span>
+        <form class="example-form" [formGroup]="searchCartForm" (ngSubmit)="hanldeSearchCart()">
+    
+            <mat-form-field class="example-full-width">
+              <mat-label>Nhập số điện thoại</mat-label>
+              <span matPrefix>+84 &nbsp;</span>
+              <input formControlName="phone" type="number" matInput placeholder="12356789">
+             
+            </mat-form-field>
+            <button type="submit" mat-flat-button color="primary">Tra cứu</button>
+          </form>
+    </div>
+   <div class="search_cart_img">
+    
+    <div *ngIf="isSearchCart; else templateName">
+      <mat-stepper orientation="vertical">
+        <mat-step>
+          <ng-template matStepLabel>Đơn hàng chờ xác nhận</ng-template>
+          <ng-template matStepContent>
+            <p>Đơn hàng đang được xác nhận</p>
+            <button mat-button matStepperNext>Next</button>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Đang giao hàng</ng-template>
+          <ng-template matStepContent>
+            <p>Đơn hàng của bạn đang được giao tới địa chỉ </p>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Giao hàng thành công</ng-template>
+          <p>Đơn hàng đã được giao đến bạn</p>
+          <button mat-button matStepperPrevious>Back</button>
+        </mat-step>
+      </mat-stepper>
+  </div>
+  
+  <ng-template #templateName>
+    <img class="" src="https://www.nguyenkim.com/images/utils/tracktrace.jpeg" alt="">
+  </ng-template>
+   </div>
+
+</div>
+
+ 

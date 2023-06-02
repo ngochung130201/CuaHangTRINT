@@ -1,0 +1,8 @@
+@import '../../../../app/app.component.scss';
+.button {
+  @apply  text-sm text-center ml-[1rem] p-[1rem] rounded ;
+
+}
+.button_phone {
+  border: 1px solid rgb(20, 53, 195);
+}

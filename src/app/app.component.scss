@@ -1,0 +1,71 @@
+// @import 'swiper/scss';
+// @import 'swiper/scss/navigation';
+// @import 'swiper/scss/pagination';
+// .flex-center {
+//   @apply flex justify-center items-center;
+// }
+// .flex-justify-between {
+//   @apply flex justify-between items-center;
+// }
+html {
+  scroll-behavior: smooth;
+}
+
+.button-gotoTop {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  font-size: 40px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  width: 50px;
+  height: 50px;
+
+}
+.button-contacts {
+  position: fixed;
+  bottom: 100px;
+  right: 10px;
+  font-size: 40px;
+
+  text-align: center;
+  border-radius: 50%;
+  outline: none;
+  padding: 5px 10px;
+}
+.facebook {
+  position: fixed;
+  bottom: 100px;
+  right: 10px;
+  font-size: 40px;
+  text-align: center;
+  border-radius: 50%;
+  outline: none;
+  padding: 5px 10px;
+}
+
+
+.bg_url_hnh {
+  background-image: url(https://lh3.googleusercontent.com/M9Avtz7pcn5YvzMZhz8voAFShKaKR9Z6lFp3flphZQSf_lVMBft578xsAIzeLOQDv4vaoOytHl4Hf3tHskdT29IRcVlPz_4=rw-w0);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.padding-desktop {
+  padding-right: 10rem;
+  padding-left: 10rem;
+
+}
+.pt_hung-10{
+  padding-top: 10rem;
+}
+@media screen and (min-width:768px) and (max-width:1024px){
+  .padding-desktop {
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+   }
+
+
+}

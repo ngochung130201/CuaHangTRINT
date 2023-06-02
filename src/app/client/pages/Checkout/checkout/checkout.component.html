@@ -1,0 +1,143 @@
+
+<main>
+    <!-- page-banner-area-start -->
+ 
+    <!-- page-banner-area-end -->
+
+    <!-- coupon-area-start -->
+    <section class="coupon-area pt-120 pb-30">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+          
+        </div>
+     
+        </div>
+    </div>
+    </section>
+    <!-- coupon-area-end -->
+
+    <!-- checkout-area-start -->
+    <section class="checkout-area pb-85">
+        <div class="container">
+            <form action="#" (submit)="HanldeOrder()">
+                <div class="row">
+                 
+                    <div class="col-lg-6" >
+                        <form action=""  [formGroup]="FormCustomer" (ngSubmit)="onUpdateCustomer()">
+                        <div class="checkbox-form">
+                            <h3>Chi tiết thanh toán</h3>
+                            <div class="row">
+                            
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Họ và Tên <span class="required">*</span></label>
+                                        <input type="text" placeholder="" formControlName="fullName">
+                                    </div>
+                                </div>
+                          
+                              
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list">
+                                        <label>Địa chỉ <span class="required">*</span></label>
+                                        <input type="text" placeholder="" formControlName="address">
+                                    </div>
+                                </div>
+                            
+                           
+                           
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Email <span class="required">*</span></label>
+                                        <input type="email" placeholder="" formControlName="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Số điện thoại <span class="required">*</span></label>
+                                        <input type="text" placeholder="" formControlName="phone">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list create-acc">
+                                        <button mat-flat-button color="primary">Cập nhật</button>
+                                    </div>
+                                    <div id="cbox_info" class="checkout-form-list create-account">
+                                        <p>Create an account by entering the information below. If you are a returning
+                                            customer please login at the top of the page.</p>
+                                        <label>Account password <span class="required">*</span></label>
+                                        <input type="password" placeholder="password">
+                                    </div>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="your-order mb-30 ">
+                            <h3>Đơn đặt hàng của bạn</h3>
+                            <div class="your-order-table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Sản phẩm</th>
+                                            <th  class="product-total">{{name}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="cart-subtotal">
+                                            <th>Tổng tạm tính  </th>
+                                            <td><span class="amount">{{sumMoney}}</span></td>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>Phí vận chuyển  </th>
+                                            <td>
+                                              Miễn phí
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>Thành tiền</th>
+                                            <td><strong><span class="amount">{{sumMoney}}</span></strong>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            <div class="payment-method">
+                                <div class="accordion" id="checkoutAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="checkoutOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bankOne" aria-expanded="true" aria-controls="bankOne">
+                                        Chuyển khoản trực tiếp
+                                        </button>
+                                    </h2>
+                                    <div id="bankOne" class="accordion-collapse collapse show" aria-labelledby="checkoutOne" data-bs-parent="#checkoutAccordion">
+                                        <div class="accordion-body">
+                                         <p>Thực hiện thanh toán của bạn trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID Đơn đặt hàng của bạn làm tham chiếu thanh toán. Đơn đặt hàng của bạn sẽ không được giao cho đến khi tiền trong tài khoản của chúng tôi được thanh toán.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                                </div>
+                                <div class="order-button-payment mt-20">
+                                <button type="submit" class="tp-btn-h1">Đặt hàng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- checkout-area-end -->
+
+    <!-- cta-area-start -->
+
+    <!-- cta-area-end -->
+
+</main>

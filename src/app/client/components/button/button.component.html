@@ -1,0 +1,28 @@
+<div class="flex-center flex-col gap-4">
+  <div class="" *ngFor="let item of buttonText ; index as key">
+    <button (click)="OnClickPhone(key)" id="{{key}}"
+      class="{{item.color}}  button  sm:w-full lg:w-[25rem]  flex-center   "
+      [ngClass]="item.color === 'bg-white' ? 'text-black button_phone ' : 'text-white'">
+      <fa-icon [icon]="item.icon" class="mr-auto "
+        [ngClass]="item.color ==  'bg-white' ? 'text-red-500' :'text-white'"></fa-icon>
+      <span class="flex-1">{{item.text}}</span>
+
+    </button>
+  </div>
+  <div *ngIf="isCheckPhone then phone">
+
+  </div>
+  <ng-template #phone>
+    <div class="text-center">
+      <p>Sử dụng số điện thoại để Đăng nhập hoặc Đăng ký
+        tài khoản của bạn</p>
+      <input type="text" name="phone" id="phone" placeholder="Nhập số điện thoại"
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+      <button type="button"
+        class="border border-color-primary bg-color-primary text-white rounded-md px-6 py-1 m-2 transition duration-500 ease select-none hover:bg-color-primary focus:outline-none focus:shadow-outline">
+        Gửi
+      </button>
+    </div>
+  </ng-template>
+
+</div>

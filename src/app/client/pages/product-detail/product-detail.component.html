@@ -1,0 +1,429 @@
+
+<main class="mt-10">
+  <!-- breadcrumb__area-start -->
+  <section class="breadcrumb__area box-plr-75">
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-12">
+          <div class="breadcrumb__wrapper">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb__area-end -->
+
+  <!-- product-details-start -->
+  <div class="product-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6">
+          <div class="product__details-nav d-sm-flex align-items-start">
+
+            <div class="product__details-thumb">
+              <div class="tab-content" id="productThumbContent">
+                <div class="tab-pane fade show active" id="thumbOne" role="tabpanel" aria-labelledby="thumbOne-tab">
+                  <div class="product__details-nav-thumb w-img">
+                    <img class="product_image"
+                      [src]="product.image"
+                      alt="">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <div class="product__details-content">
+            <h6>{{product.name}}</h6>
+            <div class="pd-rating mb-10">
+              <ul class="rating">
+                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                <li><a href="#"><i class="fal fa-star"></i></a></li>
+              </ul>
+              <span>(01 bình luận)</span>
+              <span><a href="#">Thêm đánh giá</a></span><span><a href="#">Luợt xem {{product.viewCount}}</a></span>
+            </div>
+            <div class="price mb-10">
+              <span class="promotionPrice">{{product.price}} đ</span>
+              
+              <span>{{product.promotionPrice}} đ</span>
+            </div>
+          
+            <div class="features-des mb-20 mt-10">
+             {{product.content}}
+            </div>
+            <div class="product-stock mb-20">
+              <h5>Còn: <span> {{product.quantity}} sản phẩm</span></h5>
+            </div>
+            <div class="cart-option mb-15">
+              <div class="product-quantity mr-20">
+                <div class="cart-plus-minus p-relative"><input type="text" value="{{quantity}}"  [(ngModel)]="quantity">
+                 
+                </div>
+              </div>
+              <button (click)="AddOrder(product.promotionPrice)" class="cart-btn  cart-btn-1 bg-main ">Mua ngay</button>
+              <button (click)="AddOrder(product.promotionPrice)" class="cart-btn bg-main cart-btn-2 ">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="details-meta">
+              <div class="d-meta-left">
+                <div class="dm-item mr-20">
+                  <a href="#"><i class="fal fa-heart"></i>Thêm vào danh sách yêu thích</a>
+                </div>
+              
+              </div>
+              <div class="d-meta-left">
+                <div class="dm-item">
+                  <a href="#"><i class="fal fa-share-alt"></i>Chia sẻ</a>
+                </div>
+              </div>
+            </div>
+            <div class="product-tag-area mt-15">
+              <div class="product_info">
+                <span class="sku_wrapper">
+                  <span class="title">Nhà cung cấp:</span>
+                  <span class="sku">{{[supplierName]}}</span>
+                </span>
+                <span class="posted_in">
+                  <span class="title">Danh mục:</span>
+                  <a href="#">{{productCategory}}</a>
+                  
+                </span>
+                <span class="tagged_as">
+                  <span class="title">Thuơng hiệu:</span>
+                  <a href="#">{{brandName}}</a>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- product-details-end -->
+
+  <!-- product-details-des-start -->
+  <div class="product-details-des mt-40 mb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="product__details-des-tab">
+            <ul class="nav nav-tabs" id="productDesTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="des-tab" data-bs-toggle="tab" data-bs-target="#des" type="button"
+                  role="tab" aria-controls="des" aria-selected="true">Thông tin sản phẩm</button>
+              </li>
+             
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button"
+                  role="tab" aria-controls="review" aria-selected="false">Đánh giá ({{countProductComment}}) </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="prodductDesTaContent">
+        <div class="tab-pane fade active show" id="des" role="tabpanel" aria-labelledby="des-tab">
+          <div class="product__details-des-wrapper">
+            <div [innerHTML]="product.description"></div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="aditional" role="tabpanel" aria-labelledby="aditional-tab">
+          <div class="product__desc-info">
+            <ul>
+              <li>
+                <h6>Weight</h6>
+                <span>2 lbs</span>
+              </li>
+              <li>
+                <h6>Dimensions</h6>
+                <span>12 × 16 × 19 in</span>
+              </li>
+              <li>
+                <h6>Product</h6>
+                <span>Purchase this product on rag-bone.com</span>
+              </li>
+              <li>
+                <h6>Color</h6>
+                <span>Gray, Black</span>
+              </li>
+              <li>
+                <h6>Size</h6>
+                <span>S, M, L, XL</span>
+              </li>
+              <li>
+                <h6>Model</h6>
+                <span>Model </span>
+              </li>
+              <li>
+                <h6>Shipping</h6>
+                <span>Standard shipping: $5,95</span>
+              </li>
+              <li>
+                <h6>Care Info</h6>
+                <span>Machine Wash up to 40ºC/86ºF Gentle Cycle</span>
+              </li>
+              <li>
+                <h6>Brand</h6>
+                <span>Kazen</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+          <div class="product__details-review">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="product__details-comment ">
+                  <div class="comment-title mb-20">
+                    <h3>Thêm bình luận</h3>
+                    <p>Địa chỉ email của bạn sẽ không được công bố. Các trường bắt buộc được đánh dấu  *</p>
+                  </div>
+             
+                  <div class="comment-input-box">
+                    <form action="#" [formGroup]="ProductCommentForm" (submit)="addProductCommnet()">
+                      <div class="row">
+                        <div class="col-xxl-6 col-xl-6">
+                          <div class="comment-input">
+                            <input formControlName="productCommentName" type="text" placeholder="Tên">
+                          </div>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6">
+                          <div class="comment-input">
+                            <input formControlName="email" type="email" placeholder="Email">
+                          </div>
+                        </div>
+                        <div class="col-xxl-12">
+                          <textarea formControlName="detail" placeholder="Nội dung bình luận" class="comment-input comment-textarea"></textarea>
+                        </div>
+                        <div class="col-xxl-12">
+                         
+                        </div>
+                        <div class="col-xxl-12">
+                          <div class="comment-submit">
+                            <button type="submit" class="cart-btn text-white">Bình luận</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+             <div class="flex-bw">
+              <span>{{countProductComment}} Bình luận</span>
+              <input type="search" name="" id="" placeholder="Tìm theo nội dung, người gửi...">
+             </div>
+
+            </div>
+            <div class="row">
+             
+              <div class="col-xl-8">
+                <div class="review-des-infod">
+                  <h6>Thảo luận về "<span>{{productName}}</span>"</h6>
+                  <div class="review-details-des" *ngFor="let item of listProductCommnet">
+                    <div class="author-image mr-15">
+                      <a href="#"><img src="assets/img/author/author-sm-1.jpg" alt=""></a>
+                    </div>
+                    <div class="review-details-content" >
+                   
+                      <div class="name-date flex_row_custom">
+                        <div class="name-commnent">{{capitalizeName}}</div>
+                        <div class="flex_row_custom"> <div class="Up_name">{{item.productCommentName}}</div> – <span>{{item.createDate}}</span></div>
+                      </div>
+                      <p>{{item.detail}}</p>
+                      <div class=" ">
+                        <span class="ml-3">Trả lời</span>
+                        
+                      </div>
+                    </div>
+                 
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="paginator">
+              <nav class="Pager2" aria-label="pagination example">
+                <ul class="pagination justify-content-center">
+            
+                    <!--Arrow left-->
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+            
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+              
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- product-details-des-end -->
+
+  <!-- shop modal start -->
+  <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered product__modal" role="document">
+      <div class="modal-content">
+        <div class="product__modal-wrapper p-relative">
+          <div class="product__modal-close p-absolute">
+            <button data-bs-dismiss="modal"><i class="fal fa-times"></i></button>
+          </div>
+          <div class="product__modal-inner">
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="product__modal-box">
+                  <div class="tab-content" id="modalTabContent">
+                    <div class="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
+                      <div class="product__modal-img w-img">
+                        <img src="assets/img/quick-view/quick-view-1.jpg" alt="">
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
+                      <div class="product__modal-img w-img">
+                        <img src="assets/img/quick-view/quick-view-2.jpg" alt="">
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
+                      <div class="product__modal-img w-img">
+                        <img src="assets/img/quick-view/quick-view-3.jpg" alt="">
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
+                      <div class="product__modal-img w-img">
+                        <img src="assets/img/quick-view/quick-view-4.jpg" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="nav nav-tabs" id="modalTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="nav1-tab" data-bs-toggle="tab" data-bs-target="#nav1"
+                        type="button" role="tab" aria-controls="nav1" aria-selected="true">
+                        <img src="assets/img/quick-view/quick-nav-1.jpg" alt="">
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button"
+                        role="tab" aria-controls="nav2" aria-selected="false">
+                        <img src="assets/img/quick-view/quick-nav-2.jpg" alt="">
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="nav3-tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button"
+                        role="tab" aria-controls="nav3" aria-selected="false">
+                        <img src="assets/img/quick-view/quick-nav-3.jpg" alt="">
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="nav4-tab" data-bs-toggle="tab" data-bs-target="#nav4" type="button"
+                        role="tab" aria-controls="nav4" aria-selected="false">
+                        <img src="assets/img/quick-view/quick-nav-4.jpg" alt="">
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="product__modal-content">
+                  <h4><a href="product-details.html">Samsung C49J89: £875, Debenhams Plus</a></h4>
+                  <div class="product__review d-sm-flex">
+                    <div class="rating rating__shop mb-10 mr-30">
+                      <ul>
+                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                      </ul>
+                    </div>
+                    <div class="product__add-review mb-15">
+                      <span>01 bình luận</span>
+                    </div>
+                  </div>
+                  <div class="product__price">
+                    <span>$109.00 – $307.00</span>
+                  </div>
+                  <div class="product__modal-des mt-20 mb-15">
+                    <ul>
+                      <li><a href="#"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
+                      <li><a href="#"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
+                      <li><a href="#"><i class="fas fa-circle"></i> Memory, Storage & SIM: 12GB RAM, 256GB.</a></li>
+                      <li><a href="#"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
+                    </ul>
+                  </div>
+                  <div class="product__stock mb-20">
+                    <span class="mr-10">Availability :</span>
+                    <span>1795 in stock</span>
+                  </div>
+                  <div class="product__modal-form">
+                    <form action="#">
+                      <div class="pro-quan-area d-lg-flex align-items-center">
+                        <div class="product-quantity mr-20 mb-25">
+                          <div class="cart-plus-minus p-relative"><input type="text" value="1" /></div>
+                        </div>
+                        <div class="pro-cart-btn mb-25">
+                          <button class="cart-btn" type="submit">Add to cart</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="product__stock mb-30">
+                    <ul>
+                      <li><a href="#">
+                          <span class="sku mr-10">SKU:</span>
+                          <span>Samsung C49J89: £875, Debenhams Plus</span></a>
+                      </li>
+                      <li><a href="#">
+                          <span class="cat mr-10">Categories:</span>
+                          <span>iPhone, Tablets</span></a>
+                      </li>
+                      <li><a href="#">
+                          <span class="tag mr-10">Tags:</span>
+                          <span>Smartphone, Tablets</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- shop modal end -->
+
+</main>
+

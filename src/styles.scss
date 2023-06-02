@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+// @tailwind base;
+// @tailwind utilities;
+// @tailwind components;
+// global.scss
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+* {
+  margin: 0;
+  padding: 0;
+
+}
+img {
+  width: 100%;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+.bg-main {
+  background-color: #3f51b5;
+}
+.hover_main:hover {
+ // background-color: ##3f51b5;
+  color: #3f51b5;
+}

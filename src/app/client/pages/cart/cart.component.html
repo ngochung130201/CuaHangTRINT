@@ -1,0 +1,126 @@
+<main>
+   <!-- page-banner-area-start -->
+   <!-- <div class="page-banner-area page-banner-height-2" data-background="assets/img/banner/page-banner-4.jpg">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="page-banner-content text-center">
+                      <h4 class="breadcrumb-title">Giỏ hàng của bạn</h4>
+                      <div class="breadcrumb-two">
+                          <nav>
+                             <nav class="breadcrumb-trail breadcrumbs">
+                                <ul class="breadcrumb-menu">
+                                   <li class="breadcrumb-trail">
+                                      <a href="index.html"><span>Trang chủ  </span></a>
+                                   </li>
+                                   <li class="trail-item">
+                                      <span>Giỏ hàng</span>
+                                   </li>
+                                </ul>
+                             </nav> 
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+   <!-- page-banner-area-end -->
+
+   <!-- cart-area-start -->
+   <div *ngIf="checkCartEmpty; else templateName">
+      <section class="cart-area pt-120 pb-120">
+         <div class="container">
+            <div class="row">
+               <div class="col-12 flex-center" >
+                  <img src="https://shopfront-cdn.tekoapis.com/static/empty_cart.png" class="cart_img" alt="">
+                  <div>Giỏ hàng chưa có sản phẩm nào</div>
+                  <a  routerLink="/" class="login_btn" mat-raised-button color="primary">Mua sắm ngay</a>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+
+   <ng-template #templateName>
+      <section class="cart-area pt-120 pb-120">
+         <div class="container">
+            <div class="row">
+               <div class="col-12">
+                  <form action="#">
+                     <div class="table-content table-responsive">
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <th class="product-thumbnail">Hình ảnh</th>
+                                 <th class="cart-product-name">Tên sản phẩm</th>
+                                 <th class="product-price">Đơn giá</th>
+                                 <th class="product-quantity">Số lượng</th>
+                                 <th class="product-subtotal">Thành tiền</th>
+                                 <th class="product-remove">Xóa</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr *ngFor="let item of data; let i = index">
+                                 <td class="product-thumbnail"><a href="shop-details.html"><img [src]="item.image"
+                                          alt=""></a></td>
+                                 <td class="product-name"><a href="shop-details.html">{{item.name}}</a></td>
+                                 <td class="product-price"><span class="amount">{{item.price}}</span></td>
+                                 <td class="product-quantity">
+                                    <div class="cart-plus-minus"><input [ngModelOptions]="{standalone: true}"
+                                          type="text" [id]="i" name="i" [value]="item.quantity" name="{{item.quantity}}"
+                                          (blur)="blurEvent($event)" [(ngModel)]="item.quantity">
+                                       <div class="dec qtybutton">-</div>
+                                       <div class="inc qtybutton">+</div>
+                                    </div>
+                                 </td>
+                                 <td class="product-subtotal"><span class="amount">{{item.sumPrice}}</span></td>
+                                 <td class="product-remove"><button href="#" (click)="removeItem(item.productId)"><i
+                                          class="fa fa-times"></i></button></td>
+                              </tr>
+
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="row">
+                        <div class="col-12">
+                           <div class="coupon-all">
+                              <div class="coupon">
+                                 <input id="coupon_code" class="input-text" name="coupon_code" value=""
+                                    placeholder="Mã giảm giá" type="text">
+                                 <button class="tp-btn-h1 btn_custom text-white " name="apply_coupon" type="submit">Áp
+                                    dụng phiếu giảm giá</button>
+                              </div>
+                              <!-- <div class="coupon2">
+                                    <button class="tp-btn-h1" name="update_cart" type="submit">Cập nhật </button>
+                                 </div> -->
+                              <div class="row justify-content-end">
+                                 <div class="col-md-5">
+                                    <div class="cart-page-total">
+                                       <h2>Thanh toán</h2>
+                                       <ul class="mb-20">
+                                          <li>Tổng tạm tính <span>{{intoMoney2}}</span></li>
+                                          <li>Thành tiền <span>{{intoMoney2}}</span></li>
+                                       </ul>
+                                       <button class="tp-btn-h1 btn_custom text-white" (click)="hanldeCheckOut()">Thanh
+                                          toán</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </form>
+               </div>
+            </div>
+         </div>
+      </section>
+   </ng-template>
+   <!-- cart-area-end -->
+
+   <!-- cta-area-start -->
+
+   <!-- cta-area-end -->
+
+</main>
