@@ -7,4 +7,56 @@
 .mt-10 {
   margin-top: 3.3rem
 }
+.text-custom {
+  color: white;
+}
+.product__add-cart-s {
+  margin-top: 2rem;
+}
+.product__add-cart-s:hover {
+  .text-custom {
+  background-color: #f5f5f5;
+  color: #000 !important;
+  }
+
+}
+.product__item-d {
+  height: 400px;
+}
 @import '../../../app.component.scss';
+.btn-custom-24 {
+  padding: 2px 40px !important;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+}
+
+.filter-container {
+  flex: 1;
+  margin-right: 10px;
+  width: 25%;
+}
+
+.search-container {
+  flex: 3;
+}
+
+.input-group .mat-form-field {
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.no-results img {
+  width: 30%;
+}

@@ -55,9 +55,14 @@
               <span><a href="#">Thêm đánh giá</a></span><span><a href="#">Luợt xem {{product.viewCount}}</a></span>
             </div>
             <div class="price mb-10">
-              <span class="promotionPrice">{{product.price}} đ</span>
-              
-              <span>{{product.promotionPrice}} đ</span>
+                <div class="promotionPrice">
+                      <span>{{product.price | number:'1.0-0'}} đ</span>
+                    
+                  </div>
+                <div class="price">
+                  <span>{{product.promotionPrice | number:'1.0-0'}}đ</span>
+                  
+                </div>
             </div>
           
             <div class="features-des mb-20 mt-10">

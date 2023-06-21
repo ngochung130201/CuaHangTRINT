@@ -31,31 +31,38 @@
         Để đóng góp ý kiến, bạn vui lòng để lại thông tin: Họ và tên, Số điện Thoại, Email, Ngày mua hàng để được hỗ trợ nhanh nhất.
         
         Chân thành cảm ơn!</p>
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-                <mat-label>Nội dung liên hệ</mat-label>
-                <textarea matInput placeholder="Mời bạn bình luận. Vui lòng nhập tiếng việt có dấu"></textarea>
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Họ</mat-label>
-                
-                <input formControlName="lname" type="text" matInput placeholder="">
-               
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <mat-label>Tên</mat-label>
-                
-                <input formControlName="fname" type="text" matInput placeholder="">
-               
-              </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <mat-label>Nhập số điện thoại</mat-label>
-              <span matPrefix>+84 &nbsp;</span>
-              <input formControlName="phone" type="number" matInput placeholder="12356789">
-             
-            </mat-form-field>
-            <button type="submit" mat-flat-button color="primary">Liên hệ</button>
-          </form>
+    <form [formGroup]="myForm" class="example-form"   (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Nội dung liên hệ</mat-label>
+    <textarea formControlName="body" matInput placeholder="Mời bạn bình luận. Vui lòng nhập tiếng việt có dấu"></textarea>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Tên</mat-label>
+    <input formControlName="name" type="text" matInput placeholder="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" type="text" matInput placeholder="">
+<mat-error *ngIf="myForm.get('email')?.errors?.['email']">Email không hợp lệ!</mat-error>
+
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Nhập số điện thoại</mat-label>
+    <span matPrefix>+84 &nbsp;</span>
+    <input formControlName="phone" type="text" matInput placeholder="12356789">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Địa chỉ</mat-label>
+    <input formControlName="address" type="text" matInput placeholder="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Chủ đề</mat-label>
+    <input formControlName="subject" type="text" matInput placeholder="">
+  </mat-form-field>
+  <button type="submit" mat-flat-button color="primary">Liên hệ</button>
+</form>
+
     </div>
    <div class="search_cart_img">
     

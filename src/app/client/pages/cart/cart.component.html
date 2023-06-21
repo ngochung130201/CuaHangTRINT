@@ -65,7 +65,7 @@
                                  <td class="product-thumbnail"><a href="shop-details.html"><img [src]="item.image"
                                           alt=""></a></td>
                                  <td class="product-name"><a href="shop-details.html">{{item.name}}</a></td>
-                                 <td class="product-price"><span class="amount">{{item.price}}</span></td>
+                                 <td class="product-price"><span class="amount">{{item.price | number:'1.0-0'}}</span></td>
                                  <td class="product-quantity">
                                     <div class="cart-plus-minus"><input [ngModelOptions]="{standalone: true}"
                                           type="text" [id]="i" name="i" [value]="item.quantity" name="{{item.quantity}}"
@@ -74,7 +74,7 @@
                                        <div class="inc qtybutton">+</div>
                                     </div>
                                  </td>
-                                 <td class="product-subtotal"><span class="amount">{{item.sumPrice}}</span></td>
+                                 <td class="product-subtotal"><span class="amount">{{item.sumPrice | number:'1.0-0'}}</span></td>
                                  <td class="product-remove"><button href="#" (click)="removeItem(item.productId)"><i
                                           class="fa fa-times"></i></button></td>
                               </tr>
@@ -99,8 +99,8 @@
                                     <div class="cart-page-total">
                                        <h2>Thanh toán</h2>
                                        <ul class="mb-20">
-                                          <li>Tổng tạm tính <span>{{intoMoney2}}</span></li>
-                                          <li>Thành tiền <span>{{intoMoney2}}</span></li>
+                                          <li>Tổng tạm tính <span>{{intoMoney2 | number:'1.0-0'}}</span></li>
+                                          <li>Thành tiền <span>{{intoMoney2 | number:'1.0-0'}}</span></li>
                                        </ul>
                                        <button class="tp-btn-h1 btn_custom text-white" (click)="hanldeCheckOut()">Thanh
                                           toán</button>

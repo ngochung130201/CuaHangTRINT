@@ -39,28 +39,27 @@
    <div class="search_cart_img">
     
     <div *ngIf="isSearchCart; else templateName">
-      <mat-stepper orientation="vertical">
-        <mat-step>
-          <ng-template matStepLabel>Đơn hàng chờ xác nhận</ng-template>
-          <ng-template matStepContent>
-            <p>Đơn hàng đang được xác nhận</p>
-            <button mat-button matStepperNext>Next</button>
-          </ng-template>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Đang giao hàng</ng-template>
-          <ng-template matStepContent>
-            <p>Đơn hàng của bạn đang được giao tới địa chỉ </p>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </ng-template>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Giao hàng thành công</ng-template>
-          <p>Đơn hàng đã được giao đến bạn</p>
-          <button mat-button matStepperPrevious>Back</button>
-        </mat-step>
-      </mat-stepper>
+       <mat-stepper [selectedIndex]="currentStepIndex"  [linear]="true"  orientation="vertical" >
+
+    <mat-step [completed]="currentStepIndex == 1" [editable]="false">
+      <ng-template matStepLabel>Đơn hàng xác nhận</ng-template>
+      <ng-template matStepContent>
+        <p>Đơn hàng đang được xác nhận</p>
+      </ng-template>
+    </mat-step>
+    <mat-step [completed]="currentStepIndex == 2" [editable]="false">
+      <ng-template matStepLabel>Đang giao hàng</ng-template>
+      <ng-template matStepContent>
+        <p>Đơn hàng của bạn đang được giao tới địa chỉ </p>
+      </ng-template>
+    </mat-step>
+    <mat-step [completed]="currentStepIndex == 3" [editable]="false">
+      <ng-template matStepLabel>Giao hàng thành công</ng-template>
+      <p>Đơn hàng đã được giao đến bạn</p>
+  </mat-step>
+</mat-stepper>
+
+
   </div>
   
   <ng-template #templateName>

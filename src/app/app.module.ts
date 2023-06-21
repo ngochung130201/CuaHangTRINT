@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -51,9 +51,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { RegisterComponent } from './client/pages/register/register.component';
 
 import { SearchCartComponent } from './client/pages/search-cart/search-cart.component';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { ContactComponent } from './client/pages/contact/contact.component';
 import { LiveChatComponent } from './live-chat/live-chat.component';
+import { PriceFormatPipe } from './client/helper/price-format.pipe';
 
 @NgModule({
   declarations: [
@@ -67,18 +68,19 @@ import { LiveChatComponent } from './live-chat/live-chat.component';
     TabsComponent,
     CartComponent,
     HomeComponent,
+    PriceFormatPipe,
     ProductComponent,
     ProductDetailComponent,
     PromoComponent,
     ErrorPageComponent,
-    
+
     BlogDetailsComponent,
-     CheckoutComponent,
-     RegisterComponent,
-     ContactComponent,
-     SearchCartComponent,
-     LiveChatComponent,
-   
+    CheckoutComponent,
+    RegisterComponent,
+    ContactComponent,
+    SearchCartComponent,
+    LiveChatComponent,
+
 
 
 
@@ -114,6 +116,7 @@ import { LiveChatComponent } from './live-chat/live-chat.component';
 
   ],
   providers: [CurrencyPipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [PriceFormatPipe]
 })
 export class AppModule { }

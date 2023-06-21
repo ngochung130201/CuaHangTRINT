@@ -18,3 +18,21 @@
 .blog-tag-2 a {
   color: #fff;
 }
+.no-results {
+  padding: 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.no-results h4 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.no-results p {
+  font-size: 18px;
+  color: #777;
+}

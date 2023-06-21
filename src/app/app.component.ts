@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { faFacebook, faFacebookF, faGoogle, IconDefinition, faFacebookMessenger } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faCircleChevronUp, faLocation, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
-
+declare const FB: any;
 type TyContact = {
   id: string,
   icon: IconDefinition,
@@ -21,8 +21,19 @@ export class AppComponent {
   topPosToStartShowing = 100;
   upIcon = faCircleChevronUp
 
-
-
+  ngOnInit() {
+    (function(d, s, id) {
+      let js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s) as HTMLScriptElement; js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      js.setAttribute('data-appid', '3490538181220468'); // Replace 'YOUR_APP_ID' with your actual App ID
+      if (fjs && fjs.parentNode) {
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    })(document, 'script', 'facebook-jssdk');
+  }
+  
   @HostListener('window:scroll')
   checkScroll() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -79,5 +90,18 @@ export class AppComponent {
       link: 'https://www.facebook.com/profile.php?id=100025586114979'
     }
   ];
-
+  
+  initFacebookSDK(appId: string): Promise<void> {
+    return new Promise<void>((resolve) => {
+      (window as {[key: string]: any})['fbAsyncInit'] = function() {
+        FB.init({
+          appId: appId,
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v12.0'
+        });
+        resolve();
+      };
+    });
+  }
 }

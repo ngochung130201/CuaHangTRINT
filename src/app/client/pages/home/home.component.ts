@@ -56,11 +56,11 @@ export class HomeComponent implements OnInit {
       this.selectIndex++;
     }
   }
-  constructor(private brandSerice:BrandService, 
-    private route : ActivatedRoute,
-    private router:Router,
-    private commomService : CommomService,
-    private BannerService: BannerService,private postService : PostService, config: NgbCarouselConfig,private productService : ProductClientService) {
+  constructor(private brandSerice: BrandService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private commomService: CommomService,
+    private BannerService: BannerService, private postService: PostService, config: NgbCarouselConfig, private productService: ProductClientService) {
 
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
@@ -72,14 +72,14 @@ export class HomeComponent implements OnInit {
     // if (this.autoSilde) {
     //   this.autoSildeImages();
     // }
- this.getProductCreateDate()
- this.getProductRecommended()
- this.getPostCreateDate()
- this.getBrand()
- this.getProductViewCountOne()
- this.getProductViewCount()
-this.getData()
-this.reloadCurrentRoute()
+    this.getProductCreateDate()
+    this.getProductRecommended()
+    this.getPostCreateDate()
+    this.getBrand()
+    this.getProductViewCountOne()
+    this.getProductViewCount()
+    this.getData()
+    this.reloadCurrentRoute()
   }
   ngOnChanges(): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
@@ -96,13 +96,13 @@ this.reloadCurrentRoute()
     }, this.slideInteval)
   }
   getBanner() {
-    
+
   }
   getData() {
     this.route.queryParams.subscribe(res => {
-     console.log(res)
-      
-   
+      console.log(res)
+
+
       // Do something with the data
     });
   }
@@ -228,83 +228,83 @@ this.reloadCurrentRoute()
 
   ]
 
-  getProductCreateDate(){
-    this.productService.getAllProductView(1,6,"createDate","desc").subscribe({
-      next:(res=>{
+  getProductCreateDate() {
+    this.productService.getAllProductView(1, 6, "createDate", "desc").subscribe({
+      next: (res => {
         this.listProduct = res.data
-        
+
       }),
-      error:(err=>{
+      error: (err => {
 
       })
     })
   }
-  listProductViewCountOne : Array<TypeProducts> = [];
-  getProductViewCountOne(){
-    this.productService.getAllProductView(1,1,"viewCount","desc").subscribe({
-      next:(res=>{
+  listProductViewCountOne: Array<TypeProducts> = [];
+  getProductViewCountOne() {
+    this.productService.getAllProductView(1, 1, "viewCount", "desc").subscribe({
+      next: (res => {
         this.listProductViewCountOne = res.data
-        
+
       }),
-      error:(err=>{
+      error: (err => {
 
       })
     })
   }
-  listProductViewCount : Array<TypeProducts> = [];
-  getProductViewCount(){
-    this.productService.getAllProductView(1,6,"viewCount","desc").subscribe({
-      next:(res=>{
+  listProductViewCount: Array<TypeProducts> = [];
+  getProductViewCount() {
+    this.productService.getAllProductView(1, 6, "viewCount", "desc").subscribe({
+      next: (res => {
         this.listProductViewCount = res.data
         console.log(res.data)
       }),
-      error:(err=>{
+      error: (err => {
 
       })
     })
   }
-  getPostCreateDate(){
-    this.postService.getAllpostView(1,4,"createDate","desc").subscribe({
-      next:(res=>{
+  getPostCreateDate() {
+    this.postService.getAllpostView(1, 4, "createDate", "desc").subscribe({
+      next: (res => {
         this.listPost = res.data
-        
+
       }),
-      error:(err=>{
+      error: (err => {
 
       })
     })
   }
-  listBrand : Array<TyBrand> = []
-  getBrand(){
+  listBrand: Array<TyBrand> = []
+  getBrand() {
     this.brandSerice.getAllBrand().subscribe({
-      next:(res=>{
+      next: (res => {
         this.listBrand = res;
       })
     })
   }
-  getProductRecommended(){
-    this.productService.getAllProductView(1,17,"createDate","desc").subscribe({
-      next:(res=>{
+  getProductRecommended() {
+    this.productService.getAllProductView(1, 17, "createDate", "desc").subscribe({
+      next: (res => {
         this.listProductRecommended = res.data
-        
+
       }),
-      error:(err=>{
+      error: (err => {
 
       })
     })
   }
-  
-  handleViewCount(slug:string){
+
+  handleViewCount(slug: string) {
     this.productService.UpdateViewCount(slug).subscribe({
-      next:(res=>{
+      next: (res => {
         console.log(res)
       })
     })
   }
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
     });
   }
   config: SwiperOptions = {

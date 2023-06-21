@@ -6,11 +6,12 @@
   <!-- page-banner-area-end -->
 
   <!-- news-detalis-area-start -->
-  <div class="blog-area mt-120 mb-75 ">
+<div >
+   <div class="blog-area mt-120 mb-75 ">
     <div class="container">
       <div class="row">
-        <div class="col-xl-8 col-lg-7">
-          <div class="row">
+        <div class="col-xl-8 col-lg-7" >
+          <div class="row" *ngIf="isData;else notData">
             <div class="col-xl-6" *ngFor="let post of posts">
               <div class="single-smblog mb-30">
                 <div class="smblog-thum">
@@ -38,9 +39,13 @@
                 </div>
               </div>
             </div>
+              
+          </div>
+          <div >
 
           </div>
-          <div class="row">
+          <div *ngIf="isData">
+             <div class="row">
             <div class="col-xl-12">
               <div class="basic-pagination text-center pt-30 pb-30">
                 <div class="flex-center" >
@@ -71,7 +76,14 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
+         <ng-template #notData>
+  <div class="no-results">
+    <h4>Không tìm thấy kết quả tìm kiếm</h4>
+    <p>Vui lòng thử lại với từ khóa khác.</p>
+  </div>
+</ng-template>
         <div class="col-xl-4 col-lg-5">
           <div class="news-sidebar pl-10">
             <div class="row">
@@ -94,12 +106,12 @@
                     <ul>
                       <li *ngFor="let blog of listBlogViewCount">
                         <div class="feed-number">
-                          <a><img
+                          <a  routerLink="/tin-tuc/{{blog.slug}} "><img
                              [src]="blog.image"
                               alt=""></a>
                         </div>
                         <div class="feed-content">
-                          <h6><a>{{blog.name}}</a></h6>
+                          <h6><a  routerLink="/tin-tuc/{{blog.slug}} ">{{blog.name}}</a></h6>
                           <span class="feed-date">
                             <i class="fal fa-calendar-alt"></i> {{blog.createDate}}
                           </span>
@@ -133,6 +145,8 @@
       </div>
     </div>
   </div>
+</div>
+
   <!-- news-detalis-area-end  -->
 
   <!-- cta-area-start -->

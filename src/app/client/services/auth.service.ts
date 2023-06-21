@@ -10,22 +10,22 @@ import { TypeLogin, TypeRegister } from '../types/auth';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  private readonly baseUrl = environment.apiUrl+'/Account';
+  private readonly baseUrl = environment.apiUrl + '/Account';
   private tokenKey: string = 'auth_token';
   private isLoggedInVar: boolean = false;
-  public Login(data:TypeLogin): Observable<string> {
-    var token =  this.http.post<string>(`${this.baseUrl}/SignIn`,data);
-   
+  public Login(data: TypeLogin): Observable<string> {
+    var token = this.http.post<string>(`${this.baseUrl}/SignIn`, data);
+
     return token;
-    
+
   }
- 
-  public Register(data:TypeRegister): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/SignUp`,data);
+
+  public Register(data: TypeRegister | null | undefined): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/SignUp`, data);
   }
-  hanldeLogin(token:string,isLoggedInVar:boolean){
-      this.setToken(token);
-      this.isLoggedInVar = isLoggedInVar;
+  hanldeLogin(token: string, isLoggedInVar: boolean) {
+    this.setToken(token);
+    this.isLoggedInVar = isLoggedInVar;
   }
   public logout() {
     // your code to log out the user
@@ -33,7 +33,7 @@ export class AuthService {
     this.removeToken();
     this.isLoggedInVar = false;
   }
-  getDataUser() : string{
+  getDataUser(): string {
     return localStorage.getItem("tokenUser") || '';
   }
 

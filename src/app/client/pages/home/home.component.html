@@ -48,10 +48,12 @@
 <main class="pt_hung-10">
 
   <!-- slider-area-start -->
-  <ngb-carousel *ngIf="images2">
+  <ngb-carousel *ngIf="images2" style="width: 100%;height: 100%;">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images2[0]" class="w-full-100" alt="Random first slide" />
+       <div class="img-center">
+         <img [src]="images2[0]" class="w-full-100" alt="Random first slide" />
+       </div>
       </div>
       <div class="carousel-caption">
         <h3>First slide label</h3>
@@ -92,7 +94,7 @@
                 <h5 class="st-titile">Sản phẩm mới nhất</h5>
               </div>
               <div class="button-wrap button-wrap-2">
-                <a href="product.html">Xem tất cả <i class="fal fa-chevron-right"></i></a>
+                <a routerLink="/san-pham">Xem tất cả <i class="fal fa-chevron-right"></i></a>
               </div>
             </div>
           </div>
@@ -108,7 +110,7 @@
                 
                 </div>
                 <div class="product__offer">
-                  <span class="discount">-15%</span>
+                <!-- <span class="discount">-15%</span> -->
                 </div>
                 <div class="product-action product-action-2">
                   <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
@@ -125,31 +127,22 @@
                   </a>
                 </div>
               </div>
-              <div class="product__content product__content-2">
-                <h6><a href="product-details.html">{{product.name}}</a></h6>
-                <div class="rating mb-5 mt-10">
-                  <ul>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                  </ul>
-                  <span>(01 review)</span>
-                </div>
-                <div class="promotionPrice">
-                  <span >{{product.price}}đ</span>
-                  
-                </div>
+             <div class="product__content product__content-2">
+                <h6><a (click)="handleViewCount(product.slug)" routerLink="san-pham/{{product.slug}}">{{product.name}}</a></h6>
+              
+               <div class="promotionPrice">
+                      <span>{{product.price | number:'1.0-0'}} đ</span>
+                    
+                  </div>
                 <div class="price">
-                  <span>{{product.promotionPrice}}đ</span>
+                  <span>{{product.promotionPrice | number:'1.0-0'}}đ</span>
                   
                 </div>
               </div>
               <div class="product__add-cart text-center">
-                <a routerLink="gio-hang"
+                <a (click)="handleViewCount(product.slug)" routerLink="san-pham/{{product.slug}}"
                   class="cart-btn-3 btn-custom-24  product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                  Add to Cart
+                 Xem chi tiết
               </a>
               </div>
             </div>
@@ -169,9 +162,7 @@
               <div class="section__title section__title-2">
                 <h5 class="st-titile">Thương hiệu</h5>
               </div>
-              <div class="button-wrap button-wrap-2">
-                <a href="product.html">Xem tất cả <i class="fal fa-chevron-right"></i></a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -364,36 +355,37 @@
             <div class="banner__item p-relative w-img mb-30">
               <div class="banner__img b-radius-2">
                 <a href="product-details.html"><img
-                    src="https://wphix.com/template/dukamarket/dukamarket/assets/img/banner/banner-14.jpg" alt=""></a>
+                    src="../../../../assets/image/m14-right-new00978.png" alt=""></a>
               </div>
-              <div class="banner__content banner__content-2">
+              <!-- <div class="banner__content banner__content-2">
                 <h6><a href="product-details.html">Microsoft <br> Surface Laptop 14”</a></h6>
                 <p class="sm-p">Up To -30%</p>
-              </div>
+                
+              </div> -->
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-12">
             <div class="banner__item p-relative mb-30 w-img">
               <div class="banner__img b-radius-2">
                 <a href="product-details.html"><img
-                    src="https://wphix.com/template/dukamarket/dukamarket/assets/img/banner/banner-15.jpg" alt=""></a>
+                    src="../../../../assets/image/right-ip14-pro-max-th66666.png" alt=""></a>
               </div>
-              <div class="banner__content banner__content-2">
+              <!-- <div class="banner__content banner__content-2">
                 <h6><a href="product-details.html">Cameras <br>Best Sport Edition </a></h6>
                 <p class="sm-p">Up To -20%</p>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-12">
             <div class="banner__item p-relative mb-30 w-img">
               <div class="banner__img b-radius-2">
                 <a href="product-details.html"><img
-                    src="https://wphix.com/template/dukamarket/dukamarket/assets/img/banner/banner-16.jpg" alt=""></a>
+                    src="../../../../assets/image/msi.png" alt=""></a>
               </div>
-              <div class="banner__content banner__content-2">
+              <!-- <div class="banner__content banner__content-2">
                 <h6><a href="product-details.html">Sneaker <br>Nike Air Max 90 </a></h6>
                 <p class="sm-p">Up To -60%</p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -426,44 +418,27 @@
                   </a>
                 </div>
                 <div class="product__offer">
-                  <span class="discount">-15%</span>
+                  <!-- <span class="discount">-15%</span> -->
                 </div>
-                <div class="product-action product-action-2">
-                  <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                    <i class="fal fa-eye"></i>
-                    <i class="fal fa-eye"></i>
-                  </a>
-                  <a href="#" class="icon-box icon-box-1">
-                    <i class="fal fa-heart"></i>
-                    <i class="fal fa-heart"></i>
-                  </a>
-                  <a href="#" class="icon-box icon-box-1">
-                    <i class="fal fa-layer-group"></i>
-                    <i class="fal fa-layer-group"></i>
-                  </a>
-                </div>
+             
               </div>
               <div class="product__content product__content-2">
-                <h6><a href="product-details.html">{{product.name}}</a></h6>
-                <div class="rating mb-5 mt-10">
-                  <ul>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                  </ul>
-                  <span>(01 review)</span>
-                </div>
+                <h6><a (click)="handleViewCount(product.slug)" routerLink="san-pham/{{product.slug}}">{{product.name}}</a></h6>
+              
+                 <div class="promotionPrice">
+                      <span>{{product.price | number:'1.0-0'}} đ</span>
+                    
+                  </div>
                 <div class="price">
-                  <span>$105-$110</span>
+                  <span>{{product.promotionPrice | number:'1.0-0'}}đ</span>
+                  
                 </div>
               </div>
               <div class="product__add-cart text-center">
-                <button type="button"
-                  class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                  Add to Cart
-                </button>
+                <a (click)="handleViewCount(product.slug)" routerLink="san-pham/{{product.slug}}"
+                  class="cart-btn-3 btn-custom-24  product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
+                 Xem chi tiết
+              </a>
               </div>
             </div>
           </div>
@@ -515,44 +490,27 @@
                   </a>
                 </div>
                 <div class="product__offer">
-                  <span class="discount">-15%</span>
+                  <!-- <span class="discount">-15%</span> -->
                 </div>
-                <div class="product-action product-action-2">
-                  <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                    <i class="fal fa-eye"></i>
-                    <i class="fal fa-eye"></i>
-                  </a>
-                  <a href="#" class="icon-box icon-box-1">
-                    <i class="fal fa-heart"></i>
-                    <i class="fal fa-heart"></i>
-                  </a>
-                  <a href="#" class="icon-box icon-box-1">
-                    <i class="fal fa-layer-group"></i>
-                    <i class="fal fa-layer-group"></i>
-                  </a>
-                </div>
+           
               </div>
-              <div class="product__content product__content-2">
-                <h6><a href="product-details.html">{{product.name}}</a></h6>
-                <div class="rating mb-5 mt-10">
-                  <ul>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                  </ul>
-                  <span>(01 review)</span>
-                </div>
+            <div class="product__content product__content-2">
+                <h6><a (click)="handleViewCount(product.slug)" routerLink="san-pham/{{product.slug}}">{{product.name}}</a></h6>
+              
+                <div class="promotionPrice">
+                      <span>{{product.price | number:'1.0-0'}} đ</span>
+                    
+                  </div>
                 <div class="price">
-                  <span>$105-$110</span>
+                  <span>{{product.promotionPrice | number:'1.0-0'}}đ</span>
+                  
                 </div>
               </div>
               <div class="product__add-cart text-center">
-                <button type="button"
-                  class="cart-btn-3 product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                  Add to Cart
-                </button>
+                <a (click)="handleViewCount(product.slug)" routerLink="san-pham/{{product.slug}}"
+                  class="cart-btn-3 btn-custom-24  product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
+                 Xem chi tiết
+              </a>
               </div>
             </div>
           </div>
@@ -572,7 +530,7 @@
                 <h5 class="st-titile">Bài viết mới nhất</h5>
               </div>
               <div class="button-wrap button-wrap-2">
-                <a href="product.html">Xem tất cả <i class="fal fa-chevron-right"></i></a>
+                <a routerLink="/tin-tuc">Xem tất cả <i class="fal fa-chevron-right"></i></a>
               </div>
             </div>
           </div>
